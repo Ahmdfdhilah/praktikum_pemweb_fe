@@ -21,7 +21,7 @@ export const PraktikumLayout: React.FC<PraktikumLayoutProps> = ({
         title={title} 
         subtitle={subtitle} 
       />
-      <main className="flex-grow bg-gray-50 lg:px-8 py-8">
+      <main className="flex-grow bg-gray-50 px-4 lg:px-8 py-8">
         {children}
       </main>
       <Footer />

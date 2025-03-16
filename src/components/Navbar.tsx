@@ -40,8 +40,8 @@ export const Navbar: React.FC = () => {
         <nav className="bg-white shadow-md py-4 px-4 sticky top-0 z-50">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                        <a href="/" className="flex items-center space-x-2">
+                    <div className="flex">
+                        <a href="/" className="flex">
                             <img src={logo} alt="Logo Praktikum IF" className="h-12 w-auto" />
                         </a>
                     </div>
