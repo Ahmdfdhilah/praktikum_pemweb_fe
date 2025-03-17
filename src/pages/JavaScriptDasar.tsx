@@ -13,12 +13,13 @@ import {
   Layers,
   CheckCircle,
   Award,
+  FolderTree,
 } from 'lucide-react';
 import { useState } from 'react';
 
 const LivePreview1 = () => {
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+    <div className="bg-white p-4">
       <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
     </div>
   );
@@ -26,7 +27,7 @@ const LivePreview1 = () => {
 
 const LivePreview2 = () => {
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+    <div className="bg-white p-4">
       <div className="space-y-4">
         <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
 
@@ -49,7 +50,7 @@ const LivePreview2 = () => {
 // Live Preview untuk Langkah 3
 const LivePreview3 = () => {
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+    <div className="bg-white p-4">
       <div className="space-y-4">
         <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
 
@@ -77,7 +78,7 @@ const LivePreview3 = () => {
 // Live Preview untuk Langkah 4
 const LivePreview4 = () => {
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+    <div className="bg-white p-4">
       <div className="space-y-4">
         <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
 
@@ -189,9 +190,9 @@ const LivePreview5 = () => {
   };
 
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
-      <div className="event-demo p-4 my-2 border border-gray-300 rounded">
-        <h2 className="text-xl font-bold mb-3">Demo Event Handler</h2>
+    <div className="bg-white p-2 sm:p-4">
+      <div className="event-demo p-2 sm:p-4 my-2">
+        <h2 className="text-lg sm:text-xl font-bold mb-3">Demo Event Handler</h2>
         <input
           type="text"
           id="nama-input"
@@ -202,7 +203,7 @@ const LivePreview5 = () => {
         />
         <button
           id="sapa-button"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto"
           onClick={handleSapa}
         >
           Sapa Saya
@@ -212,12 +213,12 @@ const LivePreview5 = () => {
           id="sapa-output"
           className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded"
         >
-          <p className="text-blue-800">{sapaOutput}</p>
+          <p className="text-blue-800 break-words">{sapaOutput}</p>
         </div>
 
         <div className="mt-4">
           <h3 className="font-semibold mb-2">Kalkulator Sederhana</h3>
-          <div className="flex gap-2 mb-3">
+          <div className="flex flex-col sm:flex-row gap-2 mb-3">
             <input
               type="number"
               id="angka1"
@@ -235,7 +236,7 @@ const LivePreview5 = () => {
               onChange={(e) => setAngka2(e.target.value)}
             />
           </div>
-          <div className="flex gap-2">
+          <div className="grid grid-cols-4 gap-2">
             <button
               id="btn-tambah"
               className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
@@ -267,7 +268,7 @@ const LivePreview5 = () => {
           </div>
           <div
             id="hasil-kalkulator"
-            className="mt-3 p-3 bg-green-50 border border-green-200 rounded font-semibold"
+            className="mt-3 p-3 bg-green-50 border border-green-200 rounded font-semibold break-words"
           >
             {hasilKalkulator}
           </div>
@@ -287,7 +288,7 @@ const LivePreview5 = () => {
 
 const LivePreview6 = () => {
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+    <div className="bg-white p-4">
       <div className="space-y-4">
         <div className="p-4 border border-gray-200 rounded-lg bg-gray-50">
           <h3 className="text-lg font-semibold mb-2">Manipulasi Array:</h3>
@@ -393,8 +394,8 @@ const LivePreview7 = () => {
   };
 
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
-      <div className="dom-demo p-4 my-2 border border-gray-300 rounded">
+    <div className="bg-white p-4">
+      <div className="dom-demo p-4 my-2">
         <h2 className="text-xl font-bold mb-3">Demo Manipulasi DOM</h2>
 
         <div id="dom-output" className={`p-4 mb-3 ${bgColor} rounded`}>
@@ -486,8 +487,8 @@ const LivePreview8 = () => {
   };
 
   return (
-    <div className="bg-white p-4 border border-gray-300 rounded-lg">
-      <div className="api-demo p-4 my-2 border border-gray-300 rounded">
+    <div className="bg-white p-4">
+      <div className="api-demo p-4 my-2">
         <h2 className="text-xl font-bold mb-3">Demo Fetch API</h2>
         <button
           id="btn-fetch"
@@ -539,7 +540,7 @@ export default function JavaScriptDasar() {
       <SectionWrapper
         id="tujuan"
         title="Tujuan Praktikum"
-        icon={<Target className="w-6 h-6 text-indigo-500" />}
+        icon={<Target className="w-6 h-6 text-blue-500" />}
       >
         <div className="space-y-4">
           <p className="text-gray-700">
@@ -565,7 +566,7 @@ export default function JavaScriptDasar() {
       <SectionWrapper
         id="dasar-teori"
         title="Dasar Teori"
-        icon={<BookOpen className="w-6 h-6 text-indigo-500" />}
+        icon={<BookOpen className="w-6 h-6 text-blue-500" />}
       >
         <div className="space-y-6">
           <InfoBox type="info" title="Apa itu JavaScript?">
@@ -778,14 +779,14 @@ const greeting = function(name) { return \`Hello ${name}\`; };`}
                 {
                   title: 'AI/ML',
                   tech: 'TensorFlow.js, Brain.js',
-                  color: 'bg-indigo-50',
+                  color: 'bg-blue-50',
                 },
               ].map((item, index) => (
                 <div
                   key={index}
                   className={`${item.color} p-4 rounded-xl shadow-md hover:scale-105 transition-transform`}
                 >
-                  <h4 className="font-semibold text-indigo-700 text-lg">
+                  <h4 className="font-semibold text-blue-700 text-lg">
                     {item.title}
                   </h4>
                   <p className="text-sm text-gray-700 mt-1">{item.tech}</p>
@@ -920,54 +921,6 @@ element.addEventListener('click', function() {
           </div>
 
           <div className="mt-4">
-            <h3 className="text-lg font-semibold text-gray-800">
-              Ekosistem JavaScript Modern
-            </h3>
-            <p className="text-lg font-medium text-gray-800">
-              JavaScript modern tidak hanya terbatas pada browser, tetapi telah
-              berkembang menjadi ekosistem lengkap untuk pengembangan berbagai
-              platform:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-              {[
-                {
-                  title: 'Server-side',
-                  tech: 'Node.js, Deno',
-                  color: 'bg-blue-50',
-                },
-                {
-                  title: 'Mobile',
-                  tech: 'React Native, Ionic',
-                  color: 'bg-green-50',
-                },
-                {
-                  title: 'Desktop',
-                  tech: 'Electron, NW.js',
-                  color: 'bg-yellow-50',
-                },
-                {
-                  title: 'IoT',
-                  tech: 'Johnny-Five, Cylon.js',
-                  color: 'bg-purple-50',
-                },
-                { title: 'Game', tech: 'Phaser, Three.js', color: 'bg-red-50' },
-                {
-                  title: 'AI/ML',
-                  tech: 'TensorFlow.js, Brain.js',
-                  color: 'bg-indigo-50',
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className={`${item.color} p-4 rounded-xl shadow-md hover:scale-105 transition-transform`}
-                >
-                  <h4 className="font-semibold text-indigo-700 text-lg">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm text-gray-700 mt-1">{item.tech}</p>
-                </div>
-              ))}
-            </div>
             <h3 className="text-lg font-semibold text-gray-800 mt-8">
               API Web Modern
             </h3>
@@ -1005,14 +958,14 @@ element.addEventListener('click', function() {
                 {
                   title: 'IndexedDB',
                   tech: 'Database di sisi klien',
-                  color: 'bg-indigo-50',
+                  color: 'bg-blue-50',
                 },
               ].map((item, index) => (
                 <div
                   key={index}
                   className={`${item.color} p-4 rounded-xl shadow-md hover:scale-105 transition-transform`}
                 >
-                  <h4 className="font-semibold text-indigo-700 text-lg">
+                  <h4 className="font-semibold text-blue-700 text-lg">
                     {item.title}
                   </h4>
                   <p className="text-sm text-gray-700 mt-1">{item.tech}</p>
@@ -1026,7 +979,7 @@ element.addEventListener('click', function() {
       <SectionWrapper
         id="prasyarat"
         title="Prasyarat"
-        icon={<CheckCircle className="w-6 h-6 text-indigo-500" />}
+        icon={<CheckCircle className="w-6 h-6 text-blue-500" />}
       >
         <div className="space-y-4">
           <p className="text-gray-700">
@@ -1044,7 +997,7 @@ element.addEventListener('click', function() {
       <SectionWrapper
         id="alat-bahan"
         title="Alat dan Bahan"
-        icon={<Layers className="w-6 h-6 text-indigo-500" />}
+        icon={<Layers className="w-6 h-6 text-blue-500" />}
       >
         <div className="space-y-4">
           <p className="text-gray-700">
@@ -1073,7 +1026,7 @@ element.addEventListener('click', function() {
       <SectionWrapper
         id="langkah-praktikum"
         title="Langkah Praktikum"
-        icon={<PlayCircle className="w-6 h-6 text-indigo-500" />}
+        icon={<PlayCircle className="w-6 h-6 text-blue-500" />}
       >
         <StepGuide
           steps={[
@@ -1803,7 +1756,7 @@ document.getElementById("btn-fetch").addEventListener("click", async function() 
       <SectionWrapper
         id="hasil-praktikum"
         title="Hasil Praktikum"
-        icon={<Award className="w-6 h-6 text-indigo-500" />}
+        icon={<Award className="w-6 h-6 text-blue-500" />}
       >
         <div className="space-y-4">
           <p className="text-gray-700">
@@ -1823,9 +1776,48 @@ document.getElementById("btn-fetch").addEventListener("click", async function() 
       </SectionWrapper>
 
       <SectionWrapper
+        id="format-pengumpulan"
+        title="Format Pengumpulan"
+        icon={<FolderTree className="w-6 h-6 text-blue-500" />}
+      >
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              Direktori GitHub:
+            </h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Buat repository dengan format: <code className="bg-gray-100 px-2 py-1 rounded">pemrograman_web_itera_[NIM]</code></li>
+              <li>Contoh: <code className="bg-gray-100 px-2 py-1 rounded">pemrograman_web_itera_119140001</code></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              Struktur Folder:
+            </h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Buat folder per pertemuan dengan format: <code className="bg-gray-100 px-2 py-1 rounded">[NAMA]_[NIM]_pertemuan[X]</code></li>
+              <li>Contoh: <code className="bg-gray-100 px-2 py-1 rounded">johndoe_119140001_pertemuan3</code></li>
+              <li>Setiap folder berisi semua file praktikum dan tugas untuk pertemuan tersebut</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              Deadline Pengumpulan:
+            </h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Deadline: <span className="font-medium">Minggu, 23 Maret 2025, pukul 23:59 WIB</span></li>
+              <li>Keterlambatan pengumpulan akan dikenakan pengurangan nilai sebesar 10% per hari</li>
+            </ul>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
         id="pertanyaan-dan-tugas"
         title="Pertanyaan dan Tugas"
-        icon={<HelpCircle className="w-6 h-6 text-indigo-500" />}
+        icon={<HelpCircle className="w-6 h-6 text-blue-500" />}
       >
         <div className="space-y-4">
           <p className="text-gray-700">
@@ -1848,11 +1840,13 @@ document.getElementById("btn-fetch").addEventListener("click", async function() 
                     <li>Menghapus item</li>
                     <li>Menyimpan data ke localStorage</li>
                   </ul>
+                  <p className="mt-2 text-gray-600 text-sm"><strong>Bobot:</strong> 40% dari nilai tugas</p>
                 </li>
                 <li>
                   Modifikasi kalkulator pada langkah 5 untuk mendukung operasi
                   matematika tambahan seperti pangkat, akar kuadrat, dan
                   modulus.
+                  <p className="mt-2 text-gray-600 text-sm"><strong>Bobot:</strong> 30% dari nilai tugas</p>
                 </li>
                 <li>
                   Buatlah sebuah fungsi untuk memvalidasi form input dengan
@@ -1862,6 +1856,7 @@ document.getElementById("btn-fetch").addEventListener("click", async function() 
                     <li>Email harus valid</li>
                     <li>Password harus minimal 8 karakter</li>
                   </ul>
+                  <p className="mt-2 text-gray-600 text-sm"><strong>Bobot:</strong> 30% dari nilai tugas</p>
                 </li>
               </ol>
             </div>

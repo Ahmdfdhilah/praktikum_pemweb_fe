@@ -4,24 +4,29 @@ import { Header } from '../Header';
 import { Footer } from '../Footer';
 
 interface PraktikumLayoutProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   children: React.ReactNode;
 }
 
-export const PraktikumLayout: React.FC<PraktikumLayoutProps> = ({ 
-  title, 
+export const PraktikumLayout: React.FC<PraktikumLayoutProps> = ({
+  title,
   subtitle,
-  children 
+  children
 }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Header 
-        title={title} 
-        subtitle={subtitle} 
-      />
-      <main className="flex-grow bg-gray-50 px-4 lg:px-8 py-8">
+      {
+        title ? (
+          <Header
+            title={title}
+            subtitle={subtitle}
+          />
+        )  : null
+      }
+
+      <main className="flex-grow bg-white px-4 lg:px-8">
         {children}
       </main>
       <Footer />

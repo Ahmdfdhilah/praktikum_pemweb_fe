@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '../assets/logo.png';
+import logo from '@/assets/logo.png';
 
 interface NavItem {
     label: string;
@@ -15,7 +15,7 @@ const navItems: NavItem[] = [
         label: 'Praktikum',
         href: '#',
         children: [
-            { label: 'JavaScript Dasar', href: '/praktikum/javascript-dasar' },
+            { label: 'JavaScript Dasar', href: '/pemrograman-web/javascript-dasar' },
             { label: 'DOM Manipulation', href: '/praktikum/dom-manipulation' },
             { label: 'Asynchronous JS', href: '/praktikum/async-js' },
         ]
@@ -37,7 +37,7 @@ export const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className="bg-white shadow-md py-4 px-4 sticky top-0 z-50">
+        <nav className="bg-white/80 backdrop-blur-sm shadow-md py-4 px-4 sticky top-0 z-50">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
                     <div className="flex">
@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
                                 {item.children ? (
                                     <div>
                                         <button
-                                            className="flex items-center text-gray-700 hover:text-indigo-600 font-medium"
+                                            className="flex items-center text-gray-700 hover:text-blue-600"
                                             onClick={() => toggleSubmenu(item.label)}
                                         >
                                             {item.label}
@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
                                                     <a
                                                         key={child.label}
                                                         href={child.href}
-                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50"
+                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
                                                     >
                                                         {child.label}
                                                     </a>
@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
                                 ) : (
                                     <a
                                         href={item.href}
-                                        className="text-gray-700 hover:text-indigo-600 font-medium"
+                                        className="text-gray-700 hover:text-blue-600"
                                     >
                                         {item.label}
                                     </a>
@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
                     {/* Mobile menu button */}
                     <div className="md:hidden flex items-center">
                         <button
-                            className="text-gray-500 hover:text-indigo-600 focus:outline-none"
+                            className="text-gray-500 hover:text-blue-600 focus:outline-none"
                             onClick={toggleMenu}
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
                                     {item.children ? (
                                         <div>
                                             <button
-                                                className="flex items-center text-gray-700 hover:text-indigo-600 font-medium"
+                                                className="flex items-center text-gray-700 hover:text-blue-600 font-medium"
                                                 onClick={() => toggleSubmenu(item.label)}
                                             >
                                                 {item.label}
@@ -120,7 +120,7 @@ export const Navbar: React.FC = () => {
                                                         <a
                                                             key={child.label}
                                                             href={child.href}
-                                                            className="text-sm text-gray-600 hover:text-indigo-600"
+                                                            className="text-sm text-gray-600 hover:text-blue-600"
                                                         >
                                                             {child.label}
                                                         </a>
@@ -131,7 +131,7 @@ export const Navbar: React.FC = () => {
                                     ) : (
                                         <a
                                             href={item.href}
-                                            className="text-gray-700 hover:text-indigo-600 font-medium"
+                                            className="text-gray-700 hover:text-blue-600 font-medium"
                                         >
                                             {item.label}
                                         </a>
