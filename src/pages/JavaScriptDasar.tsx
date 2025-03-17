@@ -16,480 +16,116 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 
-// Sample live preview component
-// const LivePreview = () => {
-//   return (
-//     <div className="bg-white p-4 border border-gray-300 rounded-lg">
-//       <div id="result" className="text-center">
-//         <h3 className="text-xl font-bold mb-2">Hello, JavaScript!</h3>
-//         <p>Ini adalah contoh output dari kode JavaScript yang Kalian buat.</p>
-//         <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">
-//           Klik Saya
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-const LivePreviewHasil = () => {
-  // State untuk Event Handler
-  const [namaInput, setNamaInput] = useState('Budi');
-  const [sapaOutput, setSapaOutput] = useState('');
-  const [angka1, setAngka1] = useState('10');
-  const [angka2, setAngka2] = useState('5');
-  const [hasilKalkulator, setHasilKalkulator] = useState('');
-
-  // State untuk DOM Manipulation
-  const [domItems, setDomItems] = useState<string[]>([]);
-  const [itemCount, setItemCount] = useState(0);
-  const [bgColor, setBgColor] = useState('');
-
-  // State untuk Fetch API
-  interface Post {
-    id: number;
-    title: string;
-    body: string;
-  }
-
-  const [postsData, setPostsData] = useState<Post[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [fetchError, setFetchError] = useState('');
-
-  // Event Handler Functions
-  const handleSapa = () => {
-    if (namaInput.trim() === '') {
-      setSapaOutput('Silakan masukkan nama Anda terlebih dahulu!');
-    } else {
-      setSapaOutput(`Halo, ${namaInput}! Selamat belajar JavaScript 😊`);
-    }
-  };
-
-  const handleOperasi = (operasi: string) => {
-    const num1 = parseFloat(angka1);
-    const num2 = parseFloat(angka2);
-
-    if (isNaN(num1) || isNaN(num2)) {
-      setHasilKalkulator('Masukkan angka yang valid!');
-      return;
-    }
-
-    let hasil;
-    let operasiTeks;
-
-    switch (operasi) {
-      case 'tambah':
-        hasil = num1 + num2;
-        operasiTeks = '+';
-        break;
-      case 'kurang':
-        hasil = num1 - num2;
-        operasiTeks = '-';
-        break;
-      case 'kali':
-        hasil = num1 * num2;
-        operasiTeks = '×';
-        break;
-      case 'bagi':
-        if (num2 === 0) {
-          setHasilKalkulator('Error: Tidak dapat membagi dengan nol!');
-          return;
-        }
-        hasil = num1 / num2;
-        operasiTeks = '÷';
-        break;
-      default:
-        return;
-    }
-
-    setHasilKalkulator(`${num1} ${operasiTeks} ${num2} = ${hasil}`);
-  };
-
-  // DOM Manipulation Functions
-  const handleAddItem = () => {
-    const newCount = itemCount + 1;
-    setItemCount(newCount);
-    setDomItems([...domItems, `Item ${newCount}`]);
-  };
-
-  const handleRemoveItem = () => {
-    if (domItems.length > 0) {
-      const newItems = [...domItems];
-      newItems.pop();
-      setDomItems(newItems);
-      setItemCount(itemCount - 1);
-    }
-  };
-
-  const handleChangeColor = () => {
-    const colors = [
-      'bg-blue-100',
-      'bg-green-100',
-      'bg-yellow-100',
-      'bg-pink-100',
-    ];
-    const currentIndex = colors.indexOf(bgColor);
-    const nextIndex =
-      currentIndex === -1 ? 0 : (currentIndex + 1) % colors.length;
-    setBgColor(colors[nextIndex]);
-  };
-
-  // Fetch API Function
-  const handleFetchData = () => {
-    setIsLoading(true);
-    setFetchError('');
-
-    // Simulating fetch with sample data
-    setTimeout(() => {
-      try {
-        setPostsData([
-          {
-            id: 1,
-            title:
-              'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-            body: 'quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto',
-          },
-          {
-            id: 2,
-            title: 'qui est esse',
-            body: 'est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla',
-          },
-          {
-            id: 3,
-            title:
-              'ea molestias quasi exercitationem repellat qui ipsa sit aut',
-            body: 'et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut',
-          },
-          {
-            id: 4,
-            title: 'eum et est occaecati',
-            body: 'ullam et saepe reiciendis voluptatem adipisci sit amet autem assumenda provident rerum culpa quis hic commodi nesciunt rem tenetur doloremque ipsam iure quis sunt voluptatem rerum illo velit',
-          },
-          {
-            id: 5,
-            title: 'nesciunt quas odio',
-            body: 'repudiandae veniam quaerat sunt sed alias aut fugiat sit autem sed est voluptatem omnis possimus esse voluptatibus quis est aut tenetur dolor neque',
-          },
-        ]);
-        setIsLoading(false);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {
-        setFetchError('Terjadi kesalahan saat mengambil data.');
-        setIsLoading(false);
-      }
-    }, 500);
-  };
-
+const LivePreview1 = () => {
   return (
-    <div className="bg-white p-6 border border-gray-200 rounded-lg overflow-auto max-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Belajar JavaScript Dasar</h1>
+    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+      <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
+    </div>
+  );
+};
 
-      {/* Awal dari hasil-hasil sebelumnya */}
-      <div id="result" className="space-y-4 mb-6">
-        <div>
-          <p>
-            Nama: <strong>Budi</strong>
-          </p>
-          <p>
-            Usia: <strong>20</strong>
-          </p>
-          <p>
-            Tahun Lahir: <strong>2004</strong>
-          </p>
+const LivePreview2 = () => {
+  return (
+    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+      <div className="space-y-4">
+        <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
+
+        <div id="result" className="p-4 border border-gray-200 rounded-lg bg-gray-50">
+          <p>Nama: <strong>Budi</strong></p>
+          <p>Usia: <strong>20</strong></p>
+          <p>Tahun Lahir: <strong>2004</strong></p>
         </div>
 
-        <hr />
-
-        <div>
-          <p>
-            Nilai: <strong>85</strong>
-          </p>
-          <p>
-            Grade: <strong>B</strong>
-          </p>
-          <p>
-            Status: <strong>Lulus</strong>
-          </p>
-          <p>
-            Hari ini adalah: <strong>Senin</strong>
+        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
+          <p className="text-yellow-800">
+            <strong>Catatan:</strong> Output di atas menunjukkan hasil dari kode JavaScript yang baru saja kita jalankan. Perhatikan bahwa kita menggunakan metode <code>getElementById</code> untuk mengakses elemen HTML dan mengubah kontennya. Selain itu, kita juga menggunakan template literals untuk menyisipkan nilai variabel ke dalam string.
           </p>
         </div>
+      </div>
+    </div>
+  );
+};
 
-        <hr />
+// Live Preview untuk Langkah 3
+const LivePreview3 = () => {
+  return (
+    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+      <div className="space-y-4">
+        <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
 
-        <div>
+        <div id="result" className="p-4 border border-gray-200 rounded-lg bg-gray-50">
+          <p>Nama: <strong>Budi</strong></p>
+          <p>Usia: <strong>20</strong></p>
+          <p>Tahun Lahir: <strong>2004</strong></p>
+          <hr className="my-2" />
+          <p>Nilai: <strong>85</strong></p>
+          <p>Grade: <strong>B</strong></p>
+          <p>Status: <strong>Lulus</strong></p>
+          <p>Hari ini adalah: <strong>Senin</strong></p>
+        </div>
+
+        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
+          <p className="text-yellow-800">
+            <strong>Catatan:</strong> Output di atas menunjukkan hasil dari kode JavaScript yang menggunakan struktur kondisional. Kita menggunakan if-else if-else untuk menentukan grade, operator ternary untuk menentukan status, dan switch-case untuk menentukan nama hari.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Live Preview untuk Langkah 4
+const LivePreview4 = () => {
+  return (
+    <div className="bg-white p-4 border border-gray-300 rounded-lg">
+      <div className="space-y-4">
+        <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
+
+        <div id="result" className="p-4 border border-gray-200 rounded-lg bg-gray-50">
+          <p>Nama: <strong>Budi</strong></p>
+          <p>Usia: <strong>20</strong></p>
+          <p>Tahun Lahir: <strong>2004</strong></p>
+          <hr className="my-2" />
+          <p>Nilai: <strong>85</strong></p>
+          <p>Grade: <strong>B</strong></p>
+          <p>Status: <strong>Lulus</strong></p>
+          <p>Hari ini adalah: <strong>Senin</strong></p>
+          <hr className="my-2" />
+
           <h3 className="font-semibold">Daftar Nilai Siswa:</h3>
-          <ul className="list-disc pl-5 my-2">
+          <ul id="daftar-nilai" className="list-disc pl-5">
             <li>Siswa 1: 85</li>
             <li>Siswa 2: 92</li>
             <li>Siswa 3: 78</li>
             <li>Siswa 4: 90</li>
             <li>Siswa 5: 88</li>
           </ul>
-          <p id="rata-rata">
-            Rata-rata nilai: <strong>86.60</strong>
+          <p id="rata-rata" className="mt-2">Rata-rata nilai: <strong>86.60</strong></p>
+
+          <h3 className="font-semibold mt-3">Countdown:</h3>
+          <div id="countdown" className="my-2">
+            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">5</span>
+            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">4</span>
+            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">3</span>
+            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">2</span>
+            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">1</span>
+          </div>
+
+          <h3 className="font-semibold mt-3">Nilai dengan for...of:</h3>
+          <div id="nilai-of" className="flex flex-wrap gap-2 my-2">
+            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">85</span>
+            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">92</span>
+            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-red-600">78</span>
+            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">90</span>
+            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">88</span>
+          </div>
+        </div>
+
+        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
+          <p className="text-yellow-800">
+            <strong>Catatan:</strong> Output di atas menunjukkan hasil dari kode JavaScript yang menggunakan loop. Kita menggunakan for loop untuk menampilkan daftar nilai siswa, while loop untuk countdown, dan for...of loop untuk menampilkan nilai dengan format yang berbeda berdasarkan kondisi.
           </p>
         </div>
-
-        <div>
-          <h3 className="font-semibold">Countdown:</h3>
-          <div className="flex space-x-1 my-2">
-            <span className="inline-block bg-blue-100 px-2 py-1 rounded">
-              5
-            </span>
-            <span className="inline-block bg-blue-100 px-2 py-1 rounded">
-              4
-            </span>
-            <span className="inline-block bg-blue-100 px-2 py-1 rounded">
-              3
-            </span>
-            <span className="inline-block bg-blue-100 px-2 py-1 rounded">
-              2
-            </span>
-            <span className="inline-block bg-blue-100 px-2 py-1 rounded">
-              1
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="font-semibold">Nilai dengan for...of:</h3>
-          <div className="flex flex-wrap gap-2 my-2">
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">
-              85
-            </span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">
-              92
-            </span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-red-600">
-              78
-            </span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">
-              90
-            </span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">
-              88
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Langkah 5: Event Handler */}
-      <hr />
-      <div className="event-demo p-4 my-4 border border-gray-300 rounded">
-        <h2 className="text-xl font-bold mb-3">Demo Event Handler</h2>
-        <input
-          type="text"
-          value={namaInput}
-          onChange={(e) => setNamaInput(e.target.value)}
-          placeholder="Masukkan nama Kalian"
-          className="border p-2 rounded w-full mb-3"
-        />
-        <button
-          onClick={handleSapa}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Sapa Saya
-        </button>
-
-        {sapaOutput && (
-          <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded">
-            <p className="text-blue-800">{sapaOutput}</p>
-          </div>
-        )}
-
-        <div className="mt-4">
-          <h3 className="font-semibold mb-2">Kalkulator Sederhana</h3>
-          <div className="flex gap-2 mb-3">
-            <input
-              type="number"
-              value={angka1}
-              onChange={(e) => setAngka1(e.target.value)}
-              placeholder="Angka 1"
-              className="border p-2 rounded flex-1"
-            />
-            <input
-              type="number"
-              value={angka2}
-              onChange={(e) => setAngka2(e.target.value)}
-              placeholder="Angka 2"
-              className="border p-2 rounded flex-1"
-            />
-          </div>
-          <div className="flex gap-2">
-            <button
-              onClick={() => handleOperasi('tambah')}
-              className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
-            >
-              +
-            </button>
-            <button
-              onClick={() => handleOperasi('kurang')}
-              className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
-            >
-              -
-            </button>
-            <button
-              onClick={() => handleOperasi('kali')}
-              className="bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600"
-            >
-              ×
-            </button>
-            <button
-              onClick={() => handleOperasi('bagi')}
-              className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-            >
-              ÷
-            </button>
-          </div>
-
-          {hasilKalkulator && (
-            <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded font-semibold">
-              {hasilKalkulator}
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Langkah 6: Array dan Objek */}
-      <hr />
-      <div className="array-objek-demo p-4 my-4 border border-gray-300 rounded">
-        <h2 className="text-xl font-bold mb-3">Manipulasi Array dan Objek</h2>
-
-        <div className="mb-4">
-          <h3 className="font-semibold mb-2">Manipulasi Array:</h3>
-          <div className="space-y-1 p-3 bg-gray-50 rounded">
-            <p>
-              <strong>Array buah:</strong> Apel, Jeruk, Mangga, Pisang, Anggur
-            </p>
-            <p>
-              <strong>Setelah push Durian:</strong> Apel, Jeruk, Mangga, Pisang,
-              Anggur, Durian
-            </p>
-            <p>
-              <strong>Setelah pop:</strong> Apel, Jeruk, Mangga, Pisang, Anggur
-              (item dihapus: Durian)
-            </p>
-            <p>
-              <strong>Setelah sort:</strong> Anggur, Apel, Jeruk, Mangga, Pisang
-            </p>
-            <p>
-              <strong>Array dengan harga:</strong> Anggur (Rp10,000), Apel
-              (Rp8,000), Jeruk (Rp15,000), Mangga (Rp5,000), Pisang (Rp20,000)
-            </p>
-            <p>
-              <strong>Buah dengan harga &gt; 10.000:</strong> Jeruk, Pisang
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="font-semibold mb-2">Manipulasi Objek:</h3>
-          <div className="space-y-1 p-3 bg-gray-50 rounded">
-            <p>
-              <strong>Info Mahasiswa:</strong> Budi Santoso (20210001) - Teknik
-              Informatika
-            </p>
-            <p>
-              <strong>Rata-rata Nilai:</strong> 87.67
-            </p>
-            <p>
-              <strong>Hobi:</strong> Coding, Membaca, Futsal
-            </p>
-            <p>
-              <strong>Email:</strong> budi.santoso@example.com
-            </p>
-            <p>
-              <strong>Nilai Web setelah diubah:</strong> 92
-            </p>
-            <p>
-              <strong>Hobi setelah dihapus:</strong> Tidak ada data hobi
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Langkah 7: Manipulasi DOM */}
-      <hr />
-      <div className="dom-demo p-4 my-4 border border-gray-300 rounded">
-        <h2 className="text-xl font-bold mb-3">Demo Manipulasi DOM</h2>
-
-        <div className={`p-4 mb-3 ${bgColor} rounded`}>
-          {domItems.map((item, index) => (
-            <div key={index} className="p-2 mb-2 bg-gray-100 rounded">
-              {item}
-            </div>
-          ))}
-        </div>
-
-        <div className="flex space-x-2">
-          <button
-            onClick={handleAddItem}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            Tambah Item
-          </button>
-          <button
-            onClick={handleRemoveItem}
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-          >
-            Hapus Item
-          </button>
-          <button
-            onClick={handleChangeColor}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-          >
-            Ubah Warna
-          </button>
-        </div>
-      </div>
-
-      {/* Langkah 8: Fetch API */}
-      <hr />
-      <div className="api-demo p-4 my-4 border border-gray-300 rounded">
-        <h2 className="text-xl font-bold mb-3">Demo Fetch API</h2>
-        <button
-          onClick={handleFetchData}
-          disabled={isLoading}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-blue-300"
-        >
-          {isLoading ? 'Mengambil Data...' : 'Ambil Data'}
-        </button>
-
-        <div className="mt-3">
-          {isLoading && (
-            <div className="p-3 bg-blue-50 text-blue-800 rounded">
-              Sedang mengambil data...
-            </div>
-          )}
-
-          {fetchError && (
-            <div className="p-3 bg-red-100 text-red-800 rounded">
-              Gagal mengambil data: {fetchError}
-            </div>
-          )}
-
-          {postsData.length > 0 && (
-            <div>
-              <h3 className="font-bold mb-2">Daftar Post:</h3>
-              {postsData.map((post) => (
-                <div key={post.id} className="p-3 mb-2 bg-gray-100 rounded">
-                  <h4 className="font-semibold">{post.title}</h4>
-                  <p className="text-sm">{post.body}</p>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="mt-6 p-4 bg-indigo-50 border border-indigo-200 rounded text-center">
-        <p className="text-indigo-800 font-semibold">
-          Semua fitur dapat diuji dengan berinteraksi pada elemen-elemen di
-          atas!
-        </p>
-        <p className="text-indigo-700 text-sm mt-1">
-          Ini adalah hasil akhir dari praktikum JavaScript Dasar 🎉
-        </p>
       </div>
     </div>
   );
@@ -1467,6 +1103,8 @@ element.addEventListener('click', function() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Dasar</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+    <!-- Tailwind opsional karna kali ini kita tidak fokus ke styling -->
 </head>
 <body>
     <h1>Belajar JavaScript Dasar</h1>
@@ -1479,6 +1117,10 @@ element.addEventListener('click', function() {
 </html>`}
                     language="html"
                   />
+                  <ResultPreview
+                    title="Output Langkah 1"
+                    livePreview={<LivePreview1 />}
+                  ></ResultPreview>
 
                   <InfoBox type="info">
                     <p>
@@ -1540,8 +1182,13 @@ document.getElementById("result").innerHTML = \`
                   <p className="text-gray-700">
                     Buka file HTML Kalian di browser dan buka konsol pengembang
                     (F12 atau klik kanan → Inspect → Console) untuk melihat
-                    output yang dihasilkan.
+                    output log yang dihasilkan.
                   </p>
+
+                  <ResultPreview
+                    title="Output Langkah 2"
+                    livePreview={<LivePreview2 />}
+                  ></ResultPreview>
 
                   <InfoBox type="tip">
                     <p>
@@ -1640,6 +1287,10 @@ document.getElementById("result").innerHTML += \`
 \`;`}
                     language="javascript"
                   />
+                  <ResultPreview
+                    title="Output Langkah 3"
+                    livePreview={<LivePreview3 />}
+                  ></ResultPreview>
 
                   <InfoBox type="info">
                     <p>
@@ -1715,6 +1366,10 @@ for (let nilai of nilaiSiswa) {
 }`}
                     language="javascript"
                   />
+                  <ResultPreview
+                    title="Output Langkah 4"
+                    livePreview={<LivePreview4 />}
+                  ></ResultPreview>
 
                   <InfoBox type="info">
                     <p>
@@ -1738,7 +1393,7 @@ for (let nilai of nilaiSiswa) {
                   </p>
 
                   <CodeBlock
-                    title="Tambahkan ke index.html (sebelum tag script)"
+                    title="Tambahkan ke index.html"
                     code={`<hr>
 <div class="event-demo p-4 my-4 border border-gray-300 rounded">
     <h2 class="text-xl font-bold mb-3">Demo Event Handler</h2>
@@ -1763,16 +1418,108 @@ for (let nilai of nilaiSiswa) {
 </div>`}
                     language="html"
                   />
+                  <CodeBlock
+                    title="Tambahkan kode JavaScript berikut ke file script.js kalian"
+                    code={`function sapaNama(nama) {
+    return \`Halo, \${nama}! Selamat belajar JavaScript!\`;
+}
 
-                  <InfoBox type="info">
-                    <p>
-                      Array dan objek adalah struktur data penting dalam
-                      JavaScript. Array digunakan untuk menyimpan koleksi data,
-                      sedangkan objek digunakan untuk menyimpan data dalam
-                      bentuk pasangan key-value. JavaScript menyediakan banyak
-                      metode bawaan untuk memanipulasi array dan objek.
-                    </p>
-                  </InfoBox>
+// Event handler untuk tombol sapa
+document.getElementById("sapa-button").addEventListener("click", function() {
+    const nama = document.getElementById("nama-input").value;
+    if (nama.trim() === "") {
+        document.getElementById("sapa-output").innerHTML = 
+            \`<p class="text-red-500">Silakan masukkan nama Anda terlebih dahulu!</p>\`;
+    } else {
+        const pesan = sapaNama(nama);
+        document.getElementById("sapa-output").innerHTML = 
+            \`<p class="text-green-500">\${pesan}</p>\`;
+    }
+});
+
+// Fungsi untuk kalkulator
+function hitungKalkulator(angka1, angka2, operasi) {
+    let hasil = 0;
+    switch (operasi) {
+        case "tambah":
+            hasil = angka1 + angka2;
+            break;
+        case "kurang":
+            hasil = angka1 - angka2;
+            break;
+        case "kali":
+            hasil = angka1 * angka2;
+            break;
+        case "bagi":
+            if (angka2 === 0) {
+                return "Error: Pembagian dengan nol tidak diperbolehkan";
+            }
+            hasil = angka1 / angka2;
+            break;
+        default:
+            return "Operasi tidak valid";
+    }
+    return hasil;
+}
+
+// Event handler untuk tombol operasi matematika
+document.getElementById("btn-tambah").addEventListener("click", function() {
+    const angka1 = parseFloat(document.getElementById("angka1").value);
+    const angka2 = parseFloat(document.getElementById("angka2").value);
+    
+    if (isNaN(angka1) || isNaN(angka2)) {
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p class="text-red-500">Masukkan angka yang valid!</p>\`;
+    } else {
+        const hasil = hitungKalkulator(angka1, angka2, "tambah");
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p>Hasil: \${angka1} + \${angka2} = \${hasil}</p>\`;
+    }
+});
+
+document.getElementById("btn-kurang").addEventListener("click", function() {
+    const angka1 = parseFloat(document.getElementById("angka1").value);
+    const angka2 = parseFloat(document.getElementById("angka2").value);
+    
+    if (isNaN(angka1) || isNaN(angka2)) {
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p class="text-red-500">Masukkan angka yang valid!</p>\`
+    } else {
+        const hasil = hitungKalkulator(angka1, angka2, "kurang");
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p>Hasil: \${angka1} - \${angka2} = \${hasil}</p>\`;
+    }
+});
+
+document.getElementById("btn-kali").addEventListener("click", function() {
+    const angka1 = parseFloat(document.getElementById("angka1").value);
+    const angka2 = parseFloat(document.getElementById("angka2").value);
+    
+    if (isNaN(angka1) || isNaN(angka2)) {
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p class="text-red-500">Masukkan angka yang valid!</p>\`;
+    } else {
+        const hasil = hitungKalkulator(angka1, angka2, "kali");
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p>Hasil: \${angka1} × \${angka2} = \${hasil}</p>\`;
+    }
+});
+
+document.getElementById("btn-bagi").addEventListener("click", function() {
+    const angka1 = parseFloat(document.getElementById("angka1").value);
+    const angka2 = parseFloat(document.getElementById("angka2").value);
+    
+    if (isNaN(angka1) || isNaN(angka2)) {
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p class="text-red-500">Masukkan angka yang valid!</p>\`;
+    } else {
+        const hasil = hitungKalkulator(angka1, angka2, "bagi");
+        document.getElementById("hasil-kalkulator").innerHTML = 
+            \`<p>Hasil: \${angka1} ÷ \${angka2} = \${hasil}</p>\`;
+    }
+});`}
+                    language="javascript"
+                  />
 
                   <ResultPreview
                     title="Output Langkah 5"
@@ -1793,7 +1540,7 @@ for (let nilai of nilaiSiswa) {
                   </p>
 
                   <CodeBlock
-                    title="Tambahkan ke index.html (sebelum tag script)"
+                    title="Tambahkan ke script.js"
                     code={`// Array dan metode array
 const buah = ["Apel", "Jeruk", "Mangga", "Pisang", "Anggur"];
 
@@ -2072,11 +1819,6 @@ document.getElementById("btn-fetch").addEventListener("click", async function() 
             <li>Menggunakan array dan objek</li>
             <li>Mengambil data dari API menggunakan Fetch API</li>
           </ul>
-
-          <ResultPreview
-            title="Hasil Akhir Praktikum"
-            livePreview={<LivePreviewHasil />}
-          ></ResultPreview>
         </div>
       </SectionWrapper>
 
