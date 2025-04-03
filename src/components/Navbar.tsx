@@ -16,8 +16,15 @@ const navItems: NavItem[] = [
         href: '#',
         children: [
             { label: 'JavaScript Dasar', href: '/pemrograman-web/javascript-dasar' },
-            { label: 'DOM Manipulation', href: '/praktikum/dom-manipulation' },
-            { label: 'Asynchronous JS', href: '/praktikum/async-js' },
+            { label: 'Next Gen JavaScript', href: '/pemrograman-web/nextgen-javascript' },
+            // { label: 'React JS Dasar', href: '/pemrograman-web/react-dasar' },
+        ]
+    },
+    {
+        label: 'UTS',
+        href: '#',
+        children: [
+            { label: 'Pemrograman Web', href: '/pemrograman-web/uts' },
         ]
     },
     { label: 'Tentang', href: '/about' },

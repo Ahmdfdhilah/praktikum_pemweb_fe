@@ -46,7 +46,7 @@ export const InfoBox: React.FC<InfoBoxProps> = ({ type, title, children }) => {
   const { bgColor, textColor, icon } = getTypeStyles();
 
   return (
-    <div className={`${bgColor} p-4 rounded-r-md my-4`}>
+    <div className={`${bgColor} p-4 rounded-r-md my-4 overflow-x-scroll`}>
       <div className="flex items-center">
         {icon}
         {title && <h4 className={`ml-2 font-semibold ${textColor}`}>{title}</h4>}

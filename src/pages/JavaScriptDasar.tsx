@@ -4,7 +4,7 @@ import { CodeBlock } from '@/components/praktikum/CodeBlock';
 import { StepGuide } from '@/components/praktikum/StepGuide';
 import { InfoBox } from '@/components/praktikum/InfoBox';
 import { SubmissionLink } from '@/components/praktikum/SubmissionLink';
-import { ResultPreview } from '@/components/praktikum/ResultPreview';
+
 import {
   BookOpen,
   HelpCircle,
@@ -15,521 +15,6 @@ import {
   Award,
   FolderTree,
 } from 'lucide-react';
-import { useState } from 'react';
-
-const LivePreview1 = () => {
-  return (
-    <div className="bg-white p-4">
-      <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
-    </div>
-  );
-};
-
-const LivePreview2 = () => {
-  return (
-    <div className="bg-white p-4">
-      <div className="space-y-4">
-        <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
-
-        <div id="result" className="p-4 border border-gray-200 rounded-lg bg-gray-50">
-          <p>Nama: <strong>Budi</strong></p>
-          <p>Usia: <strong>20</strong></p>
-          <p>Tahun Lahir: <strong>2004</strong></p>
-        </div>
-
-        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-          <p className="text-yellow-800">
-            <strong>Catatan:</strong> Output di atas menunjukkan hasil dari kode JavaScript yang baru saja kita jalankan. Perhatikan bahwa kita menggunakan metode <code>getElementById</code> untuk mengakses elemen HTML dan mengubah kontennya. Selain itu, kita juga menggunakan template literals untuk menyisipkan nilai variabel ke dalam string.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Live Preview untuk Langkah 3
-const LivePreview3 = () => {
-  return (
-    <div className="bg-white p-4">
-      <div className="space-y-4">
-        <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
-
-        <div id="result" className="p-4 border border-gray-200 rounded-lg bg-gray-50">
-          <p>Nama: <strong>Budi</strong></p>
-          <p>Usia: <strong>20</strong></p>
-          <p>Tahun Lahir: <strong>2004</strong></p>
-          <hr className="my-2" />
-          <p>Nilai: <strong>85</strong></p>
-          <p>Grade: <strong>B</strong></p>
-          <p>Status: <strong>Lulus</strong></p>
-          <p>Hari ini adalah: <strong>Senin</strong></p>
-        </div>
-
-        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-          <p className="text-yellow-800">
-            <strong>Catatan:</strong> Output di atas menunjukkan hasil dari kode JavaScript yang menggunakan struktur kondisional. Kita menggunakan if-else if-else untuk menentukan grade, operator ternary untuk menentukan status, dan switch-case untuk menentukan nama hari.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Live Preview untuk Langkah 4
-const LivePreview4 = () => {
-  return (
-    <div className="bg-white p-4">
-      <div className="space-y-4">
-        <h1 className="text-xl font-bold">Belajar JavaScript Dasar</h1>
-
-        <div id="result" className="p-4 border border-gray-200 rounded-lg bg-gray-50">
-          <p>Nama: <strong>Budi</strong></p>
-          <p>Usia: <strong>20</strong></p>
-          <p>Tahun Lahir: <strong>2004</strong></p>
-          <hr className="my-2" />
-          <p>Nilai: <strong>85</strong></p>
-          <p>Grade: <strong>B</strong></p>
-          <p>Status: <strong>Lulus</strong></p>
-          <p>Hari ini adalah: <strong>Senin</strong></p>
-          <hr className="my-2" />
-
-          <h3 className="font-semibold">Daftar Nilai Siswa:</h3>
-          <ul id="daftar-nilai" className="list-disc pl-5">
-            <li>Siswa 1: 85</li>
-            <li>Siswa 2: 92</li>
-            <li>Siswa 3: 78</li>
-            <li>Siswa 4: 90</li>
-            <li>Siswa 5: 88</li>
-          </ul>
-          <p id="rata-rata" className="mt-2">Rata-rata nilai: <strong>86.60</strong></p>
-
-          <h3 className="font-semibold mt-3">Countdown:</h3>
-          <div id="countdown" className="my-2">
-            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">5</span>
-            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">4</span>
-            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">3</span>
-            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">2</span>
-            <span className="inline-block bg-blue-100 px-2 py-1 m-1 rounded">1</span>
-          </div>
-
-          <h3 className="font-semibold mt-3">Nilai dengan for...of:</h3>
-          <div id="nilai-of" className="flex flex-wrap gap-2 my-2">
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">85</span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">92</span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-red-600">78</span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">90</span>
-            <span className="inline-block bg-gray-100 px-3 py-1 rounded text-green-600">88</span>
-          </div>
-        </div>
-
-        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-          <p className="text-yellow-800">
-            <strong>Catatan:</strong> Output di atas menunjukkan hasil dari kode JavaScript yang menggunakan loop. Kita menggunakan for loop untuk menampilkan daftar nilai siswa, while loop untuk countdown, dan for...of loop untuk menampilkan nilai dengan format yang berbeda berdasarkan kondisi.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const LivePreview5 = () => {
-  const [namaInput, setNamaInput] = useState('Budi');
-  const [sapaOutput, setSapaOutput] = useState(
-    'Halo, Budi! Selamat belajar JavaScript 😊'
-  );
-  const [angka1, setAngka1] = useState('10');
-  const [angka2, setAngka2] = useState('5');
-  const [hasilKalkulator, setHasilKalkulator] = useState('10 + 5 = 15');
-
-  const handleSapa = () => {
-    if (namaInput.trim() === '') {
-      setSapaOutput('Silakan masukkan nama Anda terlebih dahulu!');
-    } else {
-      setSapaOutput(`Halo, ${namaInput}! Selamat belajar JavaScript 😊`);
-    }
-  };
-
-  const handleOperasi = (operasi: string) => {
-    const num1 = parseFloat(angka1);
-    const num2 = parseFloat(angka2);
-
-    if (isNaN(num1) || isNaN(num2)) {
-      setHasilKalkulator('Masukkan angka yang valid!');
-      return;
-    }
-
-    let hasil;
-    let operasiTeks;
-
-    switch (operasi) {
-      case 'tambah':
-        hasil = num1 + num2;
-        operasiTeks = '+';
-        break;
-      case 'kurang':
-        hasil = num1 - num2;
-        operasiTeks = '-';
-        break;
-      case 'kali':
-        hasil = num1 * num2;
-        operasiTeks = '×';
-        break;
-      case 'bagi':
-        if (num2 === 0) {
-          setHasilKalkulator('Error: Tidak dapat membagi dengan nol!');
-          return;
-        }
-        hasil = num1 / num2;
-        operasiTeks = '÷';
-        break;
-      default:
-        return;
-    }
-
-    setHasilKalkulator(`${num1} ${operasiTeks} ${num2} = ${hasil}`);
-  };
-
-  return (
-    <div className="bg-white p-2 sm:p-4">
-      <div className="event-demo p-2 sm:p-4 my-2">
-        <h2 className="text-lg sm:text-xl font-bold mb-3">Demo Event Handler</h2>
-        <input
-          type="text"
-          id="nama-input"
-          placeholder="Masukkan nama Kalian"
-          className="border p-2 rounded w-full mb-3"
-          value={namaInput}
-          onChange={(e) => setNamaInput(e.target.value)}
-        />
-        <button
-          id="sapa-button"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full sm:w-auto"
-          onClick={handleSapa}
-        >
-          Sapa Saya
-        </button>
-
-        <div
-          id="sapa-output"
-          className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded"
-        >
-          <p className="text-blue-800 break-words">{sapaOutput}</p>
-        </div>
-
-        <div className="mt-4">
-          <h3 className="font-semibold mb-2">Kalkulator Sederhana</h3>
-          <div className="flex flex-col sm:flex-row gap-2 mb-3">
-            <input
-              type="number"
-              id="angka1"
-              placeholder="Angka 1"
-              className="border p-2 rounded flex-1"
-              value={angka1}
-              onChange={(e) => setAngka1(e.target.value)}
-            />
-            <input
-              type="number"
-              id="angka2"
-              placeholder="Angka 2"
-              className="border p-2 rounded flex-1"
-              value={angka2}
-              onChange={(e) => setAngka2(e.target.value)}
-            />
-          </div>
-          <div className="grid grid-cols-4 gap-2">
-            <button
-              id="btn-tambah"
-              className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
-              onClick={() => handleOperasi('tambah')}
-            >
-              +
-            </button>
-            <button
-              id="btn-kurang"
-              className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
-              onClick={() => handleOperasi('kurang')}
-            >
-              -
-            </button>
-            <button
-              id="btn-kali"
-              className="bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600"
-              onClick={() => handleOperasi('kali')}
-            >
-              ×
-            </button>
-            <button
-              id="btn-bagi"
-              className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-              onClick={() => handleOperasi('bagi')}
-            >
-              ÷
-            </button>
-          </div>
-          <div
-            id="hasil-kalkulator"
-            className="mt-3 p-3 bg-green-50 border border-green-200 rounded font-semibold break-words"
-          >
-            {hasilKalkulator}
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-        <p className="text-yellow-800">
-          <strong>Catatan:</strong> Demo ini menunjukkan bagaimana event handler
-          bekerja di JavaScript. Coba ubah nama atau angka, kemudian klik tombol
-          untuk melihat hasilnya.
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const LivePreview6 = () => {
-  return (
-    <div className="bg-white p-4">
-      <div className="space-y-4">
-        <div className="p-4 border border-gray-200 rounded-lg bg-gray-50">
-          <h3 className="text-lg font-semibold mb-2">Manipulasi Array:</h3>
-          <div id="array-demo" className="space-y-1">
-            <p>
-              <strong>Array buah:</strong> Apel, Jeruk, Mangga, Pisang, Anggur
-            </p>
-            <p>
-              <strong>Setelah push Durian:</strong> Apel, Jeruk, Mangga, Pisang,
-              Anggur, Durian
-            </p>
-            <p>
-              <strong>Setelah pop:</strong> Apel, Jeruk, Mangga, Pisang, Anggur
-              (item dihapus: Durian)
-            </p>
-            <p>
-              <strong>Setelah sort:</strong> Anggur, Apel, Jeruk, Mangga, Pisang
-            </p>
-            <p>
-              <strong>Array dengan harga:</strong> Anggur (Rp10,000), Apel
-              (Rp8,000), Jeruk (Rp15,000), Mangga (Rp5,000), Pisang (Rp20,000)
-            </p>
-            <p>
-              <strong>Buah dengan harga &gt; 10.000:</strong> Jeruk, Pisang
-            </p>
-          </div>
-        </div>
-
-        <div className="p-4 border border-gray-200 rounded-lg bg-gray-50">
-          <h3 className="text-lg font-semibold mb-2">Manipulasi Objek:</h3>
-          <div id="objek-demo" className="space-y-1">
-            <p>
-              <strong>Info Mahasiswa:</strong> Budi Santoso (20210001) - Teknik
-              Informatika
-            </p>
-            <p>
-              <strong>Rata-rata Nilai:</strong> 87.67
-            </p>
-            <p>
-              <strong>Hobi:</strong> Coding, Membaca, Futsal
-            </p>
-            <p>
-              <strong>Email:</strong> budi.santoso@example.com
-            </p>
-            <p>
-              <strong>Nilai Web setelah diubah:</strong> 92
-            </p>
-            <p>
-              <strong>Hobi setelah dihapus:</strong> Tidak ada data hobi
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-          <p className="text-yellow-800">
-            <strong>Catatan:</strong> Output di atas menunjukkan hasil eksekusi
-            kode JavaScript untuk manipulasi array dan objek. Perhatikan cara
-            kerja metode array (push, pop, sort, map, filter) dan operasi pada
-            objek (akses, tambah, ubah, hapus properti).
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const LivePreview7 = () => {
-  const [items, setItems] = useState([
-    { id: 1, text: 'Item 1' },
-    { id: 2, text: 'Item 2' },
-    { id: 3, text: 'Item 3' },
-  ]);
-
-  const [bgColor, setBgColor] = useState('bg-blue-100');
-  const [itemCount, setItemCount] = useState(3);
-
-  // Fungsi untuk menambah item
-  const handleTambahItem = () => {
-    const newItemCount = itemCount + 1;
-    setItemCount(newItemCount);
-    setItems([...items, { id: newItemCount, text: `Item ${newItemCount}` }]);
-  };
-
-  // Fungsi untuk menghapus item
-  const handleHapusItem = () => {
-    if (items.length > 0) {
-      setItems(items.slice(0, -1));
-      setItemCount(itemCount - 1);
-    }
-  };
-
-  // Fungsi untuk mengubah warna
-  const handleUbahWarna = () => {
-    const colors = [
-      'bg-blue-100',
-      'bg-green-100',
-      'bg-yellow-100',
-      'bg-pink-100',
-    ];
-    const currentIndex = colors.indexOf(bgColor);
-    const nextIndex = (currentIndex + 1) % colors.length;
-    setBgColor(colors[nextIndex]);
-  };
-
-  return (
-    <div className="bg-white p-4">
-      <div className="dom-demo p-4 my-2">
-        <h2 className="text-xl font-bold mb-3">Demo Manipulasi DOM</h2>
-
-        <div id="dom-output" className={`p-4 mb-3 ${bgColor} rounded`}>
-          {items.map((item) => (
-            <div key={item.id} className="p-2 mb-2 bg-gray-100 rounded">
-              {item.text}
-            </div>
-          ))}
-        </div>
-
-        <div className="space-x-2">
-          <button
-            id="btn-tambah-item"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            onClick={handleTambahItem}
-          >
-            Tambah Item
-          </button>
-          <button
-            id="btn-hapus-item"
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-            onClick={handleHapusItem}
-          >
-            Hapus Item
-          </button>
-          <button
-            id="btn-ubah-warna"
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-            onClick={handleUbahWarna}
-          >
-            Ubah Warna
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-        <p className="text-yellow-800">
-          <strong>Catatan:</strong> Interaksi ini mendemonstrasikan bagaimana
-          JavaScript memanipulasi DOM untuk menambah/menghapus elemen dan
-          mengubah gaya. Coba klik tombol di atas untuk melihat efeknya.
-        </p>
-        <p className="text-yellow-800 mt-2">
-          Pada implementasi sebenarnya, ini dilakukan dengan method DOM seperti{' '}
-          <code>createElement()</code>, <code>appendChild()</code>,{' '}
-          <code>removeChild()</code>, dan manipulasi <code>className</code>.
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const LivePreview8 = () => {
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
-
-  // Sample post data yang akan ditampilkan setelah tombol diklik
-  const samplePosts = [
-    {
-      id: 1,
-      title:
-        'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-      body: 'quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto',
-    },
-    {
-      id: 2,
-      title: 'qui est esse',
-      body: 'est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla',
-    },
-    {
-      id: 3,
-      title: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
-      body: 'et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut',
-    },
-    {
-      id: 4,
-      title: 'eum et est occaecati',
-      body: 'ullam et saepe reiciendis voluptatem adipisci sit amet autem assumenda provident rerum culpa quis hic commodi nesciunt rem tenetur doloremque ipsam iure quis sunt voluptatem rerum illo velit',
-    },
-    {
-      id: 5,
-      title: 'nesciunt quas odio',
-      body: 'repudiandae veniam quaerat sunt sed alias aut fugiat sit autem sed est voluptatem omnis possimus esse voluptatibus quis est aut tenetur dolor neque',
-    },
-  ];
-
-  // Fungsi untuk mensimulasikan pengambilan data
-  const handleFetchData = () => {
-    // Tampilkan loading indicator
-    setIsDataLoaded(true);
-  };
-
-  return (
-    <div className="bg-white p-4">
-      <div className="api-demo p-4 my-2">
-        <h2 className="text-xl font-bold mb-3">Demo Fetch API</h2>
-        <button
-          id="btn-fetch"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          onClick={handleFetchData}
-        >
-          Ambil Data
-        </button>
-
-        <div id="api-output" className="mt-3">
-          {isDataLoaded ? (
-            <>
-              <h3 className="font-bold mb-2">Daftar Post:</h3>
-              {samplePosts.map((post) => (
-                <div key={post.id} className="p-3 mb-2 bg-gray-100 rounded">
-                  <h4 className="font-semibold">{post.title}</h4>
-                  <p className="text-sm">{post.body}</p>
-                </div>
-              ))}
-            </>
-          ) : null}
-        </div>
-      </div>
-
-      <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
-        <p className="text-yellow-800">
-          <strong>Catatan:</strong> Demo ini mensimulasikan pengambilan data
-          dari API menggunakan Fetch API dan async/await.
-        </p>
-        <p className="text-yellow-800 mt-2">
-          Pada implementasi sebenarnya, data benar-benar diambil dari server
-          eksternal (JSONPlaceholder API) saat tombol "Ambil Data" diklik.
-        </p>
-        <p className="text-yellow-800 mt-2">
-          Async/await memungkinkan penulisan kode asynchronous secara
-          synchronous, membuat kode lebih mudah dibaca dan di-debug.
-        </p>
-      </div>
-    </div>
-  );
-};
 
 export default function JavaScriptDasar() {
   return (
@@ -1070,10 +555,7 @@ element.addEventListener('click', function() {
 </html>`}
                     language="html"
                   />
-                  <ResultPreview
-                    title="Output Langkah 1"
-                    livePreview={<LivePreview1 />}
-                  ></ResultPreview>
+
 
                   <InfoBox type="info">
                     <p>
@@ -1138,10 +620,6 @@ document.getElementById("result").innerHTML = \`
                     output log yang dihasilkan.
                   </p>
 
-                  <ResultPreview
-                    title="Output Langkah 2"
-                    livePreview={<LivePreview2 />}
-                  ></ResultPreview>
 
                   <InfoBox type="tip">
                     <p>
@@ -1240,10 +718,6 @@ document.getElementById("result").innerHTML += \`
 \`;`}
                     language="javascript"
                   />
-                  <ResultPreview
-                    title="Output Langkah 3"
-                    livePreview={<LivePreview3 />}
-                  ></ResultPreview>
 
                   <InfoBox type="info">
                     <p>
@@ -1319,10 +793,6 @@ for (let nilai of nilaiSiswa) {
 }`}
                     language="javascript"
                   />
-                  <ResultPreview
-                    title="Output Langkah 4"
-                    livePreview={<LivePreview4 />}
-                  ></ResultPreview>
 
                   <InfoBox type="info">
                     <p>
@@ -1474,10 +944,7 @@ document.getElementById("btn-bagi").addEventListener("click", function() {
                     language="javascript"
                   />
 
-                  <ResultPreview
-                    title="Output Langkah 5"
-                    livePreview={<LivePreview5 />}
-                  ></ResultPreview>
+
                 </div>
               ),
             },
@@ -1604,10 +1071,7 @@ document.getElementById("objek-demo").innerHTML += \`
                     </p>
                   </InfoBox>
 
-                  <ResultPreview
-                    title="Output Langkah 6"
-                    livePreview={<LivePreview6 />}
-                  ></ResultPreview>
+
                 </div>
               ),
             },
@@ -1675,10 +1139,7 @@ document.getElementById("btn-ubah-warna").addEventListener("click", function() {
                     </p>
                   </InfoBox>
 
-                  <ResultPreview
-                    title="Output Langkah 7"
-                    livePreview={<LivePreview7 />}
-                  ></ResultPreview>
+
                 </div>
               ),
             },
@@ -1741,11 +1202,6 @@ document.getElementById("btn-fetch").addEventListener("click", async function() 
                       atau promise chaining.
                     </p>
                   </InfoBox>
-
-                  <ResultPreview
-                    title="Output Langkah 8"
-                    livePreview={<LivePreview8 />}
-                  ></ResultPreview>
                 </div>
               ),
             },
@@ -1862,7 +1318,7 @@ document.getElementById("btn-fetch").addEventListener("click", async function() 
             </div>
           </div>
 
-          <SubmissionLink href="https://example.com/submit-praktikum"></SubmissionLink>
+          <SubmissionLink title="Submit Tugas Praktikum 1" href="https://forms.gle/qM3Xj8HVqFp7mQKX8"></SubmissionLink>
         </div>
       </SectionWrapper>
     </PraktikumLayout>

@@ -24,10 +24,10 @@ const LandingPage: React.FC = () => {
                 <div className="mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center justify-center min-h-screen container lg:pb-28">
                     <div className="md:w-1/2 md:pr-12">
                         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Praktikum Programming <span className="text-blue-600">Lebih Mudah</span> dan Terstruktur
+                            Belajar Programming <span className="text-blue-600">Lebih Mudah</span> dan Terstruktur
                         </h1>
                         <p className="text-lg text-gray-600 mb-8">
-                            Platform praktikum interaktif untuk mahasiswa ITERA. Kembangkan skill programming dengan praktikum yang terstruktur dan asistensi online.
+                            Platform interaktif untuk mahasiswa Teknik Informatika ITERA. Kembangkan skill programming dengan praktikum yang terstruktur dan asistensi online.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
