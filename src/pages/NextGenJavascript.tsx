@@ -742,7 +742,7 @@ restProcess: process("a", "b", "c", "d", "e")
 
                                     <CodeBlock
                                         title="Tambahkan ke awal fungsi runAllDemos di js/main.js"
-                                        code={`    // Demo Destructuring
+                                        code={`// Demo Destructuring
 const destructuringResults = demoDestructuring();
 addOutput(
 "4. Destructuring",
@@ -969,7 +969,7 @@ demoObjectLiterals
 
                                     <CodeBlock
                                         title="Tambahkan ke awal fungsi runAllDemos di js/main.js"
-                                        code={`    // Demo Default Parameters
+                                        code={`// Demo Default Parameters
 const defaultParamsResults = demoDefaultParams();
 addOutput(
   "6. Default Parameters",
@@ -1157,7 +1157,7 @@ demoAdvancedArrays
 
                                     <CodeBlock
                                         title="Tambahkan ke awal fungsi runAllDemos di js/main.js"
-                                        code={`    // Demo Array Methods
+                                        code={`// Demo Array Methods
 const arrayMethodsResults = demoArrayMethods();
 addOutput(
   "9. Modern Array Methods",
@@ -1433,7 +1433,7 @@ demoAsyncAwait
 
                                     <CodeBlock
                                         title="Tambahkan ke awal fungsi runAllDemos di js/main.js"
-                                        code={`    // Demo Promises
+                                        code={`// Demo Promises
 addOutput(
   "11. Promises",
   "Penanganan operasi asinkron dengan Promise",
