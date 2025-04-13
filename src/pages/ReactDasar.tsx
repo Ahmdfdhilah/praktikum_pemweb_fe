@@ -719,6 +719,7 @@ export default About;`}
                                         code={`.about-content {
   background-color: white;
   border-radius: 8px;
+  margin-top: 2rem;
   padding: 2rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
@@ -1284,7 +1285,7 @@ describe('TaskItem Component', () => {
     expect(mockOnDelete).toHaveBeenCalledWith(1);
   });
 
-  it('shows completed style when task is completed', () => {
+ it('shows completed style when task is completed', () => {
     const completedTask = { ...mockTask, completed: true };
     render(
       <TaskItem 
@@ -1293,9 +1294,10 @@ describe('TaskItem Component', () => {
         onToggleComplete={mockOnToggleComplete}
       />
     );
-    
-    expect(screen.getByText('Test Task')).toHaveClass('completed');
-  });
+  
+    const taskItem = screen.getByText('Test Task').closest('.task-item');
+    expect(taskItem).toHaveClass('completed');
+  });  
 });`}
                                         language="javascript"
                                     />

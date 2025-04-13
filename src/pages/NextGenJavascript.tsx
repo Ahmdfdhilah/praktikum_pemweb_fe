@@ -1615,7 +1615,7 @@ document.querySelector('.output-item:last-child .result').appendChild(asyncOutpu
                 <div className="mt-8">
                     <SubmissionLink
                         title="Submit Tugas Praktikum 2"
-                        href='#'
+                        href='https://forms.gle/Gt26HB44vG3Y2r6d9'
                     />
                 </div>
             </SectionWrapper>
