@@ -45,6 +45,10 @@ function App() {
             element={<JavaScriptNextGen />}
           />
           <Route path="/pemrograman-web/react-dasar" element={<ReactDasar />} />
+          <Route
+            path="pemrograman-web/pemrograman-python"
+            element={<PythonDasar />}
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
