@@ -17,7 +17,7 @@ const navItems: NavItem[] = [
         children: [
             { label: 'JavaScript Dasar', href: '/pemrograman-web/javascript-dasar' },
             { label: 'Next Gen JavaScript', href: '/pemrograman-web/nextgen-javascript' },
-            // { label: 'React JS Dasar', href: '/pemrograman-web/react-dasar' },
+            { label: 'React JS Dasar', href: '/pemrograman-web/react-dasar' },
         ]
     },
     {

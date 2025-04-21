@@ -1,4 +1,4 @@
-import { Code, BookOpen, Package, Database, FileCode, Key, RefreshCw } from 'lucide-react';
+import { Code, BookOpen,  Database, FileCode, RefreshCw } from 'lucide-react';
 interface CodeExampleProps {
     title: string;
     description: string;
