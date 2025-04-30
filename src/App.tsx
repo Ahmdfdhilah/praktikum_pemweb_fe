@@ -13,10 +13,15 @@ import ReactDasar from "./pages/ReactDasar";
 // import PengantarPythonPresentation from "./pages/p9/PengantarPythonPresentation";
 // import PythonOperatorPresentation from "./pages/p9/PythonOperatorPresentation";
 // import TipeDataPythonPresentation from "./pages/p9/TipeDataPythonPresentation";
-import PythonControlFlowPresentation from "./pages/p9/PythonControlFlowPresentation";
-import PythonOOPPresentation from "./pages/p10/PythonOOPPresentation";
-import { PythonClassObjectPresentation } from "./pages/p10/test";
-import PythonAttributePresentation from "./pages/p10/test2";
+// import PythonControlFlowPresentation from "./pages/p9/PythonControlFlowPresentation";
+// import PythonOOPPresentation from "./pages/p10/PythonOOPPresentation";
+// import { PythonClassObjectPresentation } from "./pages/p10/test";
+// import PythonAttributePresentation from "./pages/p10/test2";
+import PythonDasar from './pages/PythonDasar';
+import PyramidPresentation from './pages/p11/IntroToPyramid';
+import PyramidArchitecture from './pages/p11/PyramidArchitecture';
+import PyramidInstallation from './pages/p11/PyramidInstallation';
+import PyramidRouting from './pages/p11/tests';
 
 function App() {
   return (
@@ -25,10 +30,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/pemrograman-web/uts" element={<UTSReact />} />
-          <Route path="/test" element={<PythonOOPPresentation />} />
-          <Route path="/test2" element={<PythonClassObjectPresentation />} />
-          <Route path="/test3" element={<PythonAttributePresentation />} />
-          <Route path="/test4" element={<PythonControlFlowPresentation />} />
+          <Route path="/test" element={<PyramidPresentation />} />
+          <Route path="/test2" element={<PyramidArchitecture />} />
+          <Route path="/test3" element={<PyramidInstallation />} />
+          <Route path="/test4" element={<PyramidRouting />} />
           {/* <Route path="/test5" element={<PythonFunctionPresentation />} />
           <Route path="/test6" element={<PythonListTuplePresentation />} />
           <Route path="/test7" element={<PythonSetDictPresentation />} />
