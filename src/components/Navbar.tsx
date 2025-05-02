@@ -18,7 +18,8 @@ const navItems: NavItem[] = [
             { label: 'JavaScript Dasar', href: '/pemrograman-web/javascript-dasar' },
             { label: 'Next Gen JavaScript', href: '/pemrograman-web/nextgen-javascript' },
             { label: 'React JS Dasar', href: '/pemrograman-web/react-dasar' },
-            { label: 'Python Dasar', href: '/pemrograman-web/pemrograman-python' }
+            { label: 'Python Dasar', href: '/pemrograman-web/pemrograman-python' },
+            { label: 'Python OOP', href: '/pemrograman-web/OOPPython' }
         ]
     },
     {
@@ -26,6 +27,13 @@ const navItems: NavItem[] = [
         href: '#',
         children: [
             { label: 'Pemrograman Web', href: '/pemrograman-web/uts' },
+        ]
+    },
+    {
+        label: 'Pertemuan',
+        href: '#',
+        children: [
+            { label: 'Database Alembic', href: '/pemrograman-web/pertemuan/database' },
         ]
     },
     { label: 'Tentang', href: '/about' },
