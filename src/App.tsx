@@ -29,6 +29,7 @@ import PyramidRouting from './pages/p11/tests';
 // import PythonDasar from './pages/PythonDasar';
 import PythonOOPPraktikum from './pages/PythonOOPPraktikum';
 import DatabaseWebDevPraktikum from './pages/DatabasePyramid';
+import PyramidFrameworkPraktikum from './pages/PyramidFrameworkPraktikum';
 
 function App() {
   return (
@@ -37,7 +38,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/pemrograman-web/uts" element={<UTSReact />} />
-          <Route path="/pemrograman-web/pertemuan/database" element={<DatabaseWebDevPraktikum />} />
+          <Route
+            path="/pemrograman-web/pertemuan/database"
+            element={<DatabaseWebDevPraktikum />}
+          />
           <Route path="/test" element={<PyramidPresentation />} />
           <Route path="/test2" element={<PyramidArchitecture />} />
           <Route path="/test3" element={<PyramidInstallation />} />
@@ -65,6 +69,10 @@ function App() {
           <Route
             path="/pemrograman-web/OOPPython"
             element={<PythonOOPPraktikum />}
+          />
+          <Route
+            path="/pemrograman-web/Pyramid"
+            element={<PyramidFrameworkPraktikum />}
           />
         </Routes>
       </BrowserRouter>
