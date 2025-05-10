@@ -10,7 +10,7 @@ interface SectionWrapperProps {
 
 export const SectionWrapper: React.FC<SectionWrapperProps> = ({ id, title, isBordered=true, icon, children }) => {
     return (
-        <section id={id} className="py-8 px-4">
+        <section id={id} className="py-8 lg:px-4">
             <div className="container mx-auto">
                 <div className="flex items-center mb-2">
                     <div className="mr-4">

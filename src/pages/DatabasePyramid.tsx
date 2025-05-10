@@ -17,7 +17,7 @@ import { SubmissionLink } from '@/components/praktikum/SubmissionLink';
 export default function DatabaseWebDevPraktikum() {
     return (
         <PraktikumLayout
-            title="Pertemuan Basis Data dan Pengembangan Web"
+            title="Pertemuan Basis Data"
             subtitle="SQLAlchemy, Alembic, PostgreSQL dan Python Pyramid"
         >
             {/* Tujuan Praktikum */}

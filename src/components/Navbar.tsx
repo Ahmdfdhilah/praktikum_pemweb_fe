@@ -19,7 +19,8 @@ const navItems: NavItem[] = [
             { label: 'Next Gen JavaScript', href: '/pemrograman-web/nextgen-javascript' },
             { label: 'React JS Dasar', href: '/pemrograman-web/react-dasar' },
             { label: 'Python Dasar', href: '/pemrograman-web/pemrograman-python' },
-            { label: 'Python OOP', href: '/pemrograman-web/OOPPython' }
+            { label: 'Python OOP', href: '/pemrograman-web/OOPPython' },
+            { label: 'Python Pyramid', href: '/pemrograman-web/pyramid' }
         ]
     },
     {

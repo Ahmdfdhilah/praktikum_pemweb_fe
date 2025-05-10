@@ -1409,7 +1409,7 @@ pserve development.ini --reload`}
 
         <SubmissionLink
           title="Submit Tugas Praktikum Pyramid Framework"
-          href="https://forms.gle/pyramid-submission-form-123"
+          href="https://forms.gle/skfmyJXyhcVtmata7"
         />
       </SectionWrapper>
 
@@ -1515,7 +1515,7 @@ pserve development.ini --reload`}
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>
                 Deadline:{' '}
-                <span className="font-medium">23 Mei 2025, 23:59 WIB</span>
+                <span className="font-medium">15 Mei 2025, 23:59 WIB</span>
               </li>
             </ul>
           </div>

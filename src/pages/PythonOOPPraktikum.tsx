@@ -770,7 +770,7 @@ print(f"Deskripsi lingkaran: {circle.describe()}")`}
 
         <SubmissionLink
           title="Submit Tugas Praktikum OOP"
-          href="https://forms.gle/exampleSubmissionLink123"
+          href="https://forms.gle/U5tAwwxgrYozMMiY7"
         />
       </SectionWrapper>
       {/* Hasil Praktikum */}
@@ -813,7 +813,7 @@ print(f"Deskripsi lingkaran: {circle.describe()}")`}
             </h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>
-                Buat repository dengan format:{' '}
+                Pakai repository yang sudah ada dengan format:{' '}
                 <code className="bg-gray-100 px-2 py-1 rounded">
                   pemrograman_python_itera_[NIM]
                 </code>
@@ -833,22 +833,19 @@ print(f"Deskripsi lingkaran: {circle.describe()}")`}
             </h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>
-                Buat folder dengan format:{' '}
+                Buat folder per pertemuan dengan format:{' '}
                 <code className="bg-gray-100 px-2 py-1 rounded">
-                  [NAMA]_[NIM]_praktikum10
+                  [NAMA]_[NIM]_pertemuan5
                 </code>
               </li>
               <li>
                 Contoh:{' '}
                 <code className="bg-gray-100 px-2 py-1 rounded">
-                  johndoe_119140001_praktikum10
+                  johndoe_119140001_pertemuan5
                 </code>
               </li>
               <li>
-                File tugas diberi nama{' '}
-                <code className="bg-gray-100 px-2 py-1 rounded">
-                  online_shop.py
-                </code>
+                Setiap folder berisi semua file praktikum dan tugas untuk pertemuan tersebut
               </li>
             </ul>
           </div>
@@ -863,6 +860,10 @@ print(f"Deskripsi lingkaran: {circle.describe()}")`}
                 <span className="font-medium">
                   Rabu, 7 Mei 2025, pukul 23:59 WIB
                 </span>
+              </li>
+              <li>
+                Keterlambatan pengumpulan akan dikenakan pengurangan nilai sebesar{' '}
+                <span className="font-medium">10% per hari</span>
               </li>
             </ul>
           </div>

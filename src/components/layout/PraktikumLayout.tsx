@@ -26,7 +26,7 @@ export const PraktikumLayout: React.FC<PraktikumLayoutProps> = ({
         )  : null
       }
 
-      <main className="flex-grow bg-white px-4 lg:px-8">
+      <main className="flex-grow bg-white px-3 lg:px-8">
         {children}
       </main>
       <Footer />

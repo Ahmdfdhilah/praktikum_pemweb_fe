@@ -71,7 +71,7 @@ function App() {
             element={<PythonOOPPraktikum />}
           />
           <Route
-            path="/pemrograman-web/Pyramid"
+            path="/pemrograman-web/pyramid"
             element={<PyramidFrameworkPraktikum />}
           />
         </Routes>
